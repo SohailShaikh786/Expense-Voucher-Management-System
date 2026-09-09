@@ -96,7 +96,7 @@ export default function DirectorVoucherDetail() {
 
   if (isLoading) {
     return (
-      <div className="max-w-4xl mx-auto p-12 text-center text-slate-500">
+      <div className="max-w-4xl mx-auto p-12 text-center text-ink-500">
         <div className="w-8 h-8 border-4 border-brand-500 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
         Loading voucher details...
       </div>
@@ -105,10 +105,10 @@ export default function DirectorVoucherDetail() {
 
   if (error || !voucher) {
     return (
-      <div className="max-w-xl mx-auto p-8 bg-white rounded-2xl border border-slate-200 text-center shadow-sm">
+      <div className="max-w-xl mx-auto p-8 bg-white rounded-2xl border border-ink-200 text-center shadow-sm">
         <AlertCircle className="w-10 h-10 text-rose-500 mx-auto mb-3" />
-        <h3 className="text-lg font-bold text-slate-800">Voucher Not Found</h3>
-        <p className="text-sm text-slate-500 mt-1">{error || 'Requested voucher does not exist.'}</p>
+        <h3 className="text-lg font-bold text-ink-800">Voucher Not Found</h3>
+        <p className="text-sm text-ink-500 mt-1">{error || 'Requested voucher does not exist.'}</p>
         <Link
           to="/director/vouchers"
           className="inline-block mt-4 text-sm font-semibold text-brand-600 hover:underline"
@@ -130,12 +130,12 @@ export default function DirectorVoucherDetail() {
         <div>
           <Link
             to="/director/vouchers"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 mb-1.5 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-ink-500 hover:text-ink-800 mb-1.5 transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to All Vouchers
           </Link>
           <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-black text-slate-800 font-mono tracking-tight">
+            <h1 className="text-2xl font-semibold text-ink-800 font-mono tracking-tight">
               {voucher.voucherNumber}
             </h1>
             <StatusBadge status={voucher.status} />
@@ -169,9 +169,9 @@ export default function DirectorVoucherDetail() {
 
           <button
             onClick={() => setIsPrintMode(true)}
-            className="px-3.5 py-2 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold rounded-xl flex items-center gap-1.5 shadow-xs transition-colors"
+            className="px-3.5 py-2 bg-white hover:bg-ink-50 border border-ink-200 text-ink-700 text-xs font-semibold rounded-xl flex items-center gap-1.5 shadow-xs transition-colors"
           >
-            <Printer className="w-3.5 h-3.5 text-slate-500" /> Printable View
+            <Printer className="w-3.5 h-3.5 text-ink-500" /> Printable View
           </button>
         </div>
       </div>
@@ -188,27 +188,27 @@ export default function DirectorVoucherDetail() {
       )}
 
       {/* Details Box */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+      <div className="bg-white rounded-2xl border border-ink-200 shadow-sm p-6 sm:p-8 space-y-6">
         {/* Claimant Banner */}
-        <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm">
+        <div className="p-4 bg-ink-50 rounded-xl border border-ink-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm">
           <div>
-            <span className="text-xs font-semibold text-slate-400 uppercase block">Claimant Employee</span>
-            <span className="text-base font-bold text-slate-800">{voucher.employee?.name}</span>
-            <span className="text-xs text-slate-500 block">{voucher.employee?.email}</span>
+            <span className="text-xs font-semibold text-ink-400 uppercase block">Claimant Employee</span>
+            <span className="text-base font-bold text-ink-800">{voucher.employee?.name}</span>
+            <span className="text-xs text-ink-500 block">{voucher.employee?.email}</span>
           </div>
           <div className="sm:text-right">
-            <span className="text-xs font-semibold text-slate-400 uppercase block">Submission Date</span>
-            <span className="font-semibold text-slate-800">
+            <span className="text-xs font-semibold text-ink-400 uppercase block">Submission Date</span>
+            <span className="font-semibold text-ink-800">
               {voucher.submittedAt ? new Date(voucher.submittedAt).toLocaleDateString() : 'Draft'}
             </span>
           </div>
         </div>
 
         <div>
-          <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Expense Title</span>
-          <h2 className="text-xl font-bold text-slate-900 mt-1">{voucher.expenseTitle}</h2>
+          <span className="text-xs font-semibold text-ink-400 uppercase tracking-wider">Expense Title</span>
+          <h2 className="text-xl font-bold text-ink-900 mt-1">{voucher.expenseTitle}</h2>
           {voucher.expenseDescription && (
-            <p className="text-sm text-slate-600 mt-2 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-100">
+            <p className="text-sm text-ink-600 mt-2 leading-relaxed bg-ink-50 p-4 rounded-xl border border-ink-100">
               {voucher.expenseDescription}
             </p>
           )}
@@ -216,53 +216,53 @@ export default function DirectorVoucherDetail() {
 
         {/* Info Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
-          <div className="p-4 bg-slate-50/80 rounded-xl border border-slate-100">
-            <span className="text-xs font-semibold text-slate-400 uppercase flex items-center gap-1">
+          <div className="p-4 bg-ink-50/80 rounded-xl border border-ink-100">
+            <span className="text-xs font-semibold text-ink-400 uppercase flex items-center gap-1">
               <DollarSign className="w-3.5 h-3.5" /> Claimed Amount
             </span>
-            <span className="text-xl font-bold text-slate-900 mt-1 block">
+            <span className="text-xl font-bold text-ink-900 mt-1 block">
               ${Number(voucher.amount).toFixed(2)}
             </span>
           </div>
 
-          <div className="p-4 bg-slate-50/80 rounded-xl border border-slate-100">
-            <span className="text-xs font-semibold text-slate-400 uppercase flex items-center gap-1">
+          <div className="p-4 bg-ink-50/80 rounded-xl border border-ink-100">
+            <span className="text-xs font-semibold text-ink-400 uppercase flex items-center gap-1">
               <Building className="w-3.5 h-3.5" /> Department
             </span>
-            <span className="font-semibold text-slate-800 mt-1 block truncate">
+            <span className="font-semibold text-ink-800 mt-1 block truncate">
               {voucher.departmentName}
             </span>
           </div>
 
-          <div className="p-4 bg-slate-50/80 rounded-xl border border-slate-100">
-            <span className="text-xs font-semibold text-slate-400 uppercase flex items-center gap-1">
+          <div className="p-4 bg-ink-50/80 rounded-xl border border-ink-100">
+            <span className="text-xs font-semibold text-ink-400 uppercase flex items-center gap-1">
               <Tag className="w-3.5 h-3.5" /> Category
             </span>
-            <span className="font-semibold text-slate-800 mt-1 block truncate">
+            <span className="font-semibold text-ink-800 mt-1 block truncate">
               {voucher.expenseCategory.replace('_', ' ')}
             </span>
           </div>
 
-          <div className="p-4 bg-slate-50/80 rounded-xl border border-slate-100">
-            <span className="text-xs font-semibold text-slate-400 uppercase flex items-center gap-1">
+          <div className="p-4 bg-ink-50/80 rounded-xl border border-ink-100">
+            <span className="text-xs font-semibold text-ink-400 uppercase flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5" /> Expense Date
             </span>
-            <span className="font-semibold text-slate-800 mt-1 block">
+            <span className="font-semibold text-ink-800 mt-1 block">
               {new Date(voucher.expenseDate).toLocaleDateString()}
             </span>
           </div>
         </div>
 
         {/* Signatures */}
-        <div className="border-t border-slate-100 pt-6">
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
+        <div className="border-t border-ink-100 pt-6">
+          <h3 className="text-xs font-bold text-ink-400 uppercase tracking-wider mb-4">
             Signatures & Authorizations
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Employee Signature */}
-            <div className="p-4 border border-slate-200 rounded-xl bg-slate-50/50">
+            <div className="p-4 border border-ink-200 rounded-xl bg-ink-50/50">
               <div className="flex items-center justify-between text-xs mb-2">
-                <span className="font-bold text-slate-700">Claimant Signature</span>
+                <span className="font-bold text-ink-700">Claimant Signature</span>
                 {voucher.employeeSignatureUrl ? (
                   <span className="text-emerald-600 font-semibold flex items-center gap-1">
                     <CheckCircle2 className="w-3 h-3" /> Attached
@@ -273,7 +273,7 @@ export default function DirectorVoucherDetail() {
                   </span>
                 )}
               </div>
-              <div className="h-24 bg-white rounded-lg border border-dashed border-slate-200 flex items-center justify-center p-2">
+              <div className="h-24 bg-white rounded-lg border border-dashed border-ink-200 flex items-center justify-center p-2">
                 {voucher.employeeSignatureUrl ? (
                   <img
                     src={getSigSrc(voucher.employeeSignatureUrl)}
@@ -281,19 +281,19 @@ export default function DirectorVoucherDetail() {
                     className="max-h-20 object-contain"
                   />
                 ) : (
-                  <span className="text-xs text-slate-400 italic">No signature on file</span>
+                  <span className="text-xs text-ink-400 italic">No signature on file</span>
                 )}
               </div>
-              <div className="mt-2 text-xs text-slate-500 flex justify-between">
+              <div className="mt-2 text-xs text-ink-500 flex justify-between">
                 <span>Employee: {voucher.employee?.name}</span>
                 <span>{voucher.submittedAt ? new Date(voucher.submittedAt).toLocaleDateString() : '—'}</span>
               </div>
             </div>
 
             {/* Director Signature */}
-            <div className="p-4 border border-slate-200 rounded-xl bg-slate-50/50">
+            <div className="p-4 border border-ink-200 rounded-xl bg-ink-50/50">
               <div className="flex items-center justify-between text-xs mb-2">
-                <span className="font-bold text-slate-700">Director Signature</span>
+                <span className="font-bold text-ink-700">Director Signature</span>
                 {voucher.directorSignatureUrl ? (
                   <span className="text-emerald-600 font-semibold flex items-center gap-1">
                     <CheckCircle2 className="w-3 h-3" /> Attached
@@ -308,7 +308,7 @@ export default function DirectorVoucherDetail() {
                   </span>
                 )}
               </div>
-              <div className="h-24 bg-white rounded-lg border border-dashed border-slate-200 flex items-center justify-center p-2">
+              <div className="h-24 bg-white rounded-lg border border-dashed border-ink-200 flex items-center justify-center p-2">
                 {voucher.directorSignatureUrl ? (
                   <img
                     src={getSigSrc(voucher.directorSignatureUrl)}
@@ -327,7 +327,7 @@ export default function DirectorVoucherDetail() {
                   </button>
                 )}
               </div>
-              <div className="mt-2 text-xs text-slate-500 flex justify-between">
+              <div className="mt-2 text-xs text-ink-500 flex justify-between">
                 <span>Director: {voucher.director?.name || (voucher.status === 'APPROVED' ? 'Executive Director' : 'Pending')}</span>
                 <span>{voucher.approvalDate ? new Date(voucher.approvalDate).toLocaleDateString() : '—'}</span>
               </div>
@@ -337,23 +337,23 @@ export default function DirectorVoucherDetail() {
 
         {/* Audit Log */}
         {voucher.auditLogs && voucher.auditLogs.length > 0 && (
-          <div className="border-t border-slate-100 pt-6">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+          <div className="border-t border-ink-100 pt-6">
+            <h3 className="text-xs font-bold text-ink-400 uppercase tracking-wider mb-3">
               Workflow History & Audit Trail
             </h3>
             <div className="space-y-2">
               {voucher.auditLogs.map((log) => (
                 <div
                   key={log.id}
-                  className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs"
+                  className="flex items-center justify-between p-3 bg-ink-50 rounded-xl border border-ink-100 text-xs"
                 >
                   <div className="flex items-center gap-2.5">
-                    <span className="font-bold px-2 py-0.5 rounded bg-white border border-slate-200 text-slate-700 font-mono">
+                    <span className="font-bold px-2 py-0.5 rounded bg-white border border-ink-200 text-ink-700 font-mono">
                       {log.action}
                     </span>
-                    <span className="text-slate-700">{log.notes || 'Action recorded'}</span>
+                    <span className="text-ink-700">{log.notes || 'Action recorded'}</span>
                   </div>
-                  <div className="text-slate-400 whitespace-nowrap">
+                  <div className="text-ink-400 whitespace-nowrap">
                     {new Date(log.timestamp).toLocaleString()}
                   </div>
                 </div>
@@ -373,16 +373,16 @@ export default function DirectorVoucherDetail() {
 
       {/* Rejection Modal */}
       {showRejectModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border border-slate-200">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-rose-50/50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink-900/60 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border border-ink-200">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-ink-100 bg-rose-50/50">
               <div className="flex items-center gap-2 text-rose-700">
                 <XCircle className="w-5 h-5" />
-                <h3 className="font-bold text-slate-900">Reject Voucher</h3>
+                <h3 className="font-bold text-ink-900">Reject Voucher</h3>
               </div>
               <button
                 onClick={() => setShowRejectModal(false)}
-                className="text-slate-400 hover:text-slate-600 p-1 rounded-lg"
+                className="text-ink-400 hover:text-ink-600 p-1 rounded-lg"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -390,9 +390,9 @@ export default function DirectorVoucherDetail() {
 
             <form onSubmit={handleConfirmReject} className="p-6 space-y-4">
               <div>
-                <p className="text-xs text-slate-500 mb-2">
+                <p className="text-xs text-ink-500 mb-2">
                   Enter mandatory rejection reason for voucher{' '}
-                  <strong className="text-slate-800">{voucher.voucherNumber}</strong>:
+                  <strong className="text-ink-800">{voucher.voucherNumber}</strong>:
                 </p>
                 <textarea
                   rows={4}
@@ -400,7 +400,7 @@ export default function DirectorVoucherDetail() {
                   value={rejectionReason}
                   onChange={(e) => setRejectionReason(e.target.value)}
                   placeholder="e.g. Exceeds daily meal limit, invoice lacks company tax identifier..."
-                  className="w-full px-3.5 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500"
+                  className="w-full px-3.5 py-2.5 text-sm bg-ink-50 border border-ink-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500"
                 />
               </div>
 
@@ -410,11 +410,11 @@ export default function DirectorVoucherDetail() {
                 </div>
               )}
 
-              <div className="flex justify-end gap-3 pt-3 border-t border-slate-100">
+              <div className="flex justify-end gap-3 pt-3 border-t border-ink-100">
                 <button
                   type="button"
                   onClick={() => setShowRejectModal(false)}
-                  className="px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl"
+                  className="px-4 py-2 text-sm font-medium text-ink-600 hover:bg-ink-100 rounded-xl"
                 >
                   Cancel
                 </button>

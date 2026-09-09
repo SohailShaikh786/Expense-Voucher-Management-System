@@ -4,7 +4,67 @@
 
 @layer base {
   body {
-    @apply min-h-screen bg-slate-50 text-slate-800;
+    @apply min-h-screen bg-ink-50 text-ink-800 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand-600 text-white;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply space-y-7 animate-fade-up;
+  }
+
+  .panel {
+    @apply bg-white/90 backdrop-blur-sm rounded-2xl border border-ink-200/80 shadow-soft overflow-hidden;
+  }
+
+  .panel-header {
+    @apply flex items-center justify-between gap-3 px-5 py-4 border-b border-ink-100;
+  }
+
+  .page-hero {
+    @apply relative overflow-hidden rounded-2xl border border-ink-200/70 bg-white shadow-soft;
+  }
+
+  .page-hero::before {
+    content: '';
+    @apply absolute inset-0 bg-mesh opacity-80 pointer-events-none;
+  }
+
+  .input-field {
+    @apply w-full px-3.5 py-2.5 text-sm bg-ink-50/80 border border-ink-200 rounded-xl
+      text-ink-800 placeholder:text-ink-400
+      focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500
+      transition-all;
+  }
+
+  .label-field {
+    @apply block text-[11px] font-semibold text-ink-500 tracking-wide mb-1.5;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+      bg-brand-700 hover:bg-brand-800 active:bg-brand-900
+      disabled:opacity-60 disabled:cursor-not-allowed
+      text-white text-sm font-semibold rounded-xl shadow-glow
+      transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2
+      bg-white hover:bg-ink-50 text-ink-700 text-sm font-semibold
+      rounded-xl border border-ink-200 shadow-sm transition-colors;
+  }
+
+  .table-head {
+    @apply bg-ink-50/90 text-[11px] font-semibold text-ink-500 tracking-wide border-b border-ink-100;
+  }
+
+  .table-row {
+    @apply hover:bg-brand-50/40 transition-colors;
   }
 }
 
@@ -14,14 +74,14 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #eeeee9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #bfbfb2;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #9a9a8a;
 }
 
 /* Print Specific Styles */

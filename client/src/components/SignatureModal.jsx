@@ -13,7 +13,7 @@ export default function SignatureModal({ isOpen, onClose, onSave, title = "Sign 
     if (isOpen && activeTab === 'draw' && canvasRef.current) {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext('2d');
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = '#1a1a16';
       ctx.lineWidth = 2.5;
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
@@ -93,30 +93,30 @@ export default function SignatureModal({ isOpen, onClose, onSave, title = "Sign 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden border border-slate-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink-900/60 backdrop-blur-sm animate-fade-in">
+      <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden border border-ink-200">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/50">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-ink-100 bg-ink-50/50">
           <div className="flex items-center gap-2">
             <PenTool className="w-5 h-5 text-brand-600" />
-            <h3 className="font-semibold text-slate-800">{title}</h3>
+            <h3 className="font-semibold text-ink-800">{title}</h3>
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-100 transition-colors"
+            className="text-ink-400 hover:text-ink-600 p-1 rounded-lg hover:bg-ink-100 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Tab switcher */}
-        <div className="flex border-b border-slate-200 bg-slate-50 text-sm font-medium">
+        <div className="flex border-b border-ink-200 bg-ink-50 text-sm font-medium">
           <button
             onClick={() => setActiveTab('draw')}
             className={`flex-1 py-3 px-4 flex items-center justify-center gap-2 border-b-2 transition-colors ${
               activeTab === 'draw'
                 ? 'border-brand-600 text-brand-700 bg-white font-semibold'
-                : 'border-transparent text-slate-500 hover:text-slate-800'
+                : 'border-transparent text-ink-500 hover:text-ink-800'
             }`}
           >
             <PenTool className="w-4 h-4" />
@@ -127,7 +127,7 @@ export default function SignatureModal({ isOpen, onClose, onSave, title = "Sign 
             className={`flex-1 py-3 px-4 flex items-center justify-center gap-2 border-b-2 transition-colors ${
               activeTab === 'upload'
                 ? 'border-brand-600 text-brand-700 bg-white font-semibold'
-                : 'border-transparent text-slate-500 hover:text-slate-800'
+                : 'border-transparent text-ink-500 hover:text-ink-800'
             }`}
           >
             <Upload className="w-4 h-4" />
@@ -139,7 +139,7 @@ export default function SignatureModal({ isOpen, onClose, onSave, title = "Sign 
         <div className="p-6">
           {activeTab === 'draw' ? (
             <div>
-              <div className="border-2 border-dashed border-slate-300 rounded-xl bg-slate-50/60 overflow-hidden relative cursor-crosshair">
+              <div className="border-2 border-dashed border-ink-300 rounded-xl bg-ink-50/60 overflow-hidden relative cursor-crosshair">
                 <canvas
                   ref={canvasRef}
                   width={460}
@@ -154,17 +154,17 @@ export default function SignatureModal({ isOpen, onClose, onSave, title = "Sign 
                   onTouchEnd={stopDrawing}
                 />
                 {!hasDrawn && (
-                  <div className="absolute inset-0 pointer-events-none flex items-center justify-center text-slate-400 text-sm">
+                  <div className="absolute inset-0 pointer-events-none flex items-center justify-center text-ink-400 text-sm">
                     Draw your signature here with mouse or touch
                   </div>
                 )}
               </div>
               <div className="flex justify-between items-center mt-3">
-                <span className="text-xs text-slate-400">Digital hand-drawn signature</span>
+                <span className="text-xs text-ink-400">Digital hand-drawn signature</span>
                 <button
                   type="button"
                   onClick={clearCanvas}
-                  className="text-xs font-medium text-slate-600 hover:text-rose-600 flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-slate-200 hover:border-rose-200 hover:bg-rose-50 transition-colors"
+                  className="text-xs font-medium text-ink-600 hover:text-rose-600 flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-ink-200 hover:border-rose-200 hover:bg-rose-50 transition-colors"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   Clear Pad
@@ -173,7 +173,7 @@ export default function SignatureModal({ isOpen, onClose, onSave, title = "Sign 
             </div>
           ) : (
             <div>
-              <label className="border-2 border-dashed border-slate-300 rounded-xl bg-slate-50/60 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-slate-100/60 transition-colors block">
+              <label className="border-2 border-dashed border-ink-300 rounded-xl bg-ink-50/60 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-ink-100/60 transition-colors block">
                 <input
                   type="file"
                   accept="image/png, image/jpeg, image/webp, image/svg+xml"
@@ -187,9 +187,9 @@ export default function SignatureModal({ isOpen, onClose, onSave, title = "Sign 
                   </div>
                 ) : (
                   <>
-                    <Upload className="w-10 h-10 text-slate-400 mb-2" />
-                    <span className="text-sm font-semibold text-slate-700">Click to upload signature image</span>
-                    <span className="text-xs text-slate-400 mt-1">PNG, JPG, WEBP, or SVG up to 5MB</span>
+                    <Upload className="w-10 h-10 text-ink-400 mb-2" />
+                    <span className="text-sm font-semibold text-ink-700">Click to upload signature image</span>
+                    <span className="text-xs text-ink-400 mt-1">PNG, JPG, WEBP, or SVG up to 5MB</span>
                   </>
                 )}
               </label>
@@ -198,11 +198,11 @@ export default function SignatureModal({ isOpen, onClose, onSave, title = "Sign 
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-slate-100 bg-slate-50/50">
+        <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-ink-100 bg-ink-50/50">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors"
+            className="px-4 py-2 text-sm font-medium text-ink-600 hover:bg-ink-100 rounded-xl transition-colors"
           >
             Cancel
           </button>

@@ -57,11 +57,13 @@ export default function AccountsVoucherList() {
   };
 
   return (
-    <div>
-      <div className="mb-6">
-        <h1 className="text-2xl font-black text-slate-800 tracking-tight">Accounts & Finance Records</h1>
-        <p className="text-sm text-slate-500 mt-0.5">
-          Read-only company-wide ledger of expense vouchers across all departments and workflow statuses.
+    <div className="page-shell">
+      <div>
+        <h1 className="font-display text-2xl md:text-3xl font-semibold text-ink-900 tracking-tight">
+          Accounts & finance records
+        </h1>
+        <p className="text-sm text-ink-500 mt-1">
+          Company-wide ledger of expense vouchers across departments and statuses.
         </p>
       </div>
 

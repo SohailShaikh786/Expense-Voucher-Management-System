@@ -1,26 +1,34 @@
 import React from 'react';
 
-export default function StatCard({ title, value, subtext, icon: Icon, color = 'blue' }) {
+export default function StatCard({ title, value, subtext, icon: Icon, color = 'brand' }) {
   const colorMap = {
-    blue: 'bg-blue-50 text-blue-600 border-blue-200',
-    amber: 'bg-amber-50 text-amber-600 border-amber-200',
-    emerald: 'bg-emerald-50 text-emerald-600 border-emerald-200',
-    rose: 'bg-rose-50 text-rose-600 border-rose-200',
-    purple: 'bg-purple-50 text-purple-600 border-purple-200',
-    slate: 'bg-slate-100 text-slate-600 border-slate-200'
+    brand: 'bg-brand-50 text-brand-700 border-brand-200',
+    blue: 'bg-brand-50 text-brand-700 border-brand-200',
+    amber: 'bg-amber-50 text-amber-700 border-amber-200',
+    emerald: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+    rose: 'bg-rose-50 text-rose-700 border-rose-200',
+    purple: 'bg-amber-50 text-amber-700 border-amber-200',
+    slate: 'bg-ink-100 text-ink-600 border-ink-200'
   };
 
   return (
-    <div className="bg-white rounded-xl p-5 border border-slate-200/80 shadow-sm hover:shadow transition-shadow">
-      <div className="flex items-center justify-between">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">{title}</p>
-          <h3 className="text-2xl font-bold text-slate-800 mt-1">{value}</h3>
-          {subtext && <p className="text-xs text-slate-400 mt-1">{subtext}</p>}
+    <div className="group relative bg-white rounded-2xl p-5 border border-ink-200/80 shadow-soft hover:shadow-lift hover:border-brand-200/60 transition-all duration-300 overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-brand-400/0 to-transparent group-hover:via-brand-500/80 transition-all duration-300" />
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <p className="text-[11px] font-semibold tracking-wide text-ink-500">{title}</p>
+          <h3 className="font-display text-2xl font-semibold text-ink-900 mt-1.5 tracking-tight truncate">
+            {value}
+          </h3>
+          {subtext && <p className="text-xs text-ink-400 mt-1.5">{subtext}</p>}
         </div>
         {Icon && (
-          <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${colorMap[color] || colorMap.blue}`}>
-            <Icon className="w-6 h-6" />
+          <div
+            className={`w-11 h-11 rounded-xl flex items-center justify-center border shrink-0 transition-transform duration-300 group-hover:scale-105 ${
+              colorMap[color] || colorMap.brand
+            }`}
+          >
+            <Icon className="w-5 h-5" />
           </div>
         )}
       </div>

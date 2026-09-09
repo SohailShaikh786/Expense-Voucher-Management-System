@@ -7,14 +7,14 @@ import {
   FileText,
   Clock,
   Layers,
-  X
+  X,
+  Receipt
 } from 'lucide-react';
 
 export default function Sidebar({ isOpen, onClose }) {
   const { user } = useAuth();
   if (!user) return null;
 
-  // Define navigation links according to Role
   let navItems = [];
 
   if (user.role === 'EMPLOYEE') {
@@ -36,55 +36,55 @@ export default function Sidebar({ isOpen, onClose }) {
     ];
   }
 
+  const workspaceLabel =
+    user.role === 'EMPLOYEE'
+      ? 'Employee Portal'
+      : user.role === 'DIRECTOR'
+      ? 'Director Approvals'
+      : 'Accounts & Finance';
+
   return (
     <>
-      {/* Mobile backdrop */}
       {isOpen && (
         <div
           onClick={onClose}
-          className="fixed inset-0 bg-slate-900/50 z-40 md:hidden backdrop-blur-xs"
+          className="fixed inset-0 bg-ink-950/50 z-40 md:hidden backdrop-blur-sm animate-fade-in"
         />
       )}
 
-      {/* Sidebar container */}
       <aside
-        className={`no-print fixed md:sticky top-0 left-0 z-40 h-screen w-64 bg-slate-900 text-slate-300 flex flex-col transition-transform duration-200 ease-in-out border-r border-slate-800 ${
-          isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+        className={`no-print fixed md:sticky top-0 left-0 z-40 h-screen w-64 bg-ink-950 text-ink-300 flex flex-col transition-transform duration-300 ease-out border-r border-ink-800 ${
+          isOpen ? 'tranink-x-0' : '-tranink-x-full md:tranink-x-0'
         }`}
       >
-        {/* Sidebar Brand Header */}
-        <div className="h-16 flex items-center justify-between px-6 border-b border-slate-800">
+        <div className="h-16 flex items-center justify-between px-5 border-b border-ink-800/80">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-brand-500 text-white flex items-center justify-center font-bold text-sm shadow">
-              EV
+            <div className="w-9 h-9 rounded-xl bg-brand-600 text-white flex items-center justify-center shadow-glow">
+              <Receipt className="w-4 h-4" />
             </div>
             <div>
-              <span className="font-bold text-white tracking-wide text-sm block">ABC Company</span>
-              <span className="text-[10px] text-slate-400 font-medium block uppercase tracking-wider">
-                Reimbursements
+              <span className="font-display font-semibold text-white tracking-tight text-sm block">
+                ABC Expense
+              </span>
+              <span className="text-[10px] text-ink-400 font-medium block tracking-wide">
+                Vouchers
               </span>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="md:hidden text-slate-400 hover:text-white p-1 rounded-lg"
+            className="md:hidden text-ink-400 hover:text-white p-1.5 rounded-lg hover:bg-ink-800"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Role Tag */}
-        <div className="px-6 py-4 border-b border-slate-800/60 bg-slate-950/40">
-          <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Active Workspace</p>
-          <p className="text-sm font-bold text-white mt-0.5">
-            {user.role === 'EMPLOYEE' && 'Employee Portal'}
-            {user.role === 'DIRECTOR' && 'Director Approvals'}
-            {user.role === 'ACCOUNTS' && 'Accounts & Finance'}
-          </p>
+        <div className="px-5 py-4 border-b border-ink-800/60">
+          <p className="text-[10px] font-semibold text-ink-500 tracking-wide uppercase">Workspace</p>
+          <p className="text-sm font-semibold text-white mt-0.5">{workspaceLabel}</p>
         </div>
 
-        {/* Navigation Items */}
-        <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
+        <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
           {navItems.map((item) => {
             const Icon = item.icon;
             return (
@@ -94,10 +94,10 @@ export default function Sidebar({ isOpen, onClose }) {
                 onClick={onClose}
                 end={item.to.endsWith('dashboard') || item.to.endsWith('new') || item.to.endsWith('pending')}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                  `flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? 'bg-brand-600 text-white font-semibold shadow-md shadow-brand-600/20'
-                      : 'text-slate-400 hover:text-white hover:bg-slate-800/80'
+                      ? 'bg-brand-600 text-white font-semibold shadow-glow'
+                      : 'text-ink-400 hover:text-white hover:bg-ink-800/80'
                   }`
                 }
               >
@@ -108,15 +108,14 @@ export default function Sidebar({ isOpen, onClose }) {
           })}
         </nav>
 
-        {/* User Info Bar at bottom */}
-        <div className="p-4 border-t border-slate-800 bg-slate-950/30">
+        <div className="p-4 border-t border-ink-800 bg-ink-900/40">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-brand-700 text-white flex items-center justify-center font-bold text-xs">
+            <div className="w-9 h-9 rounded-full bg-brand-700 text-white flex items-center justify-center font-bold text-xs ring-2 ring-brand-500/30">
               {user.name.charAt(0).toUpperCase()}
             </div>
             <div className="overflow-hidden">
               <p className="text-xs font-semibold text-white truncate">{user.name}</p>
-              <p className="text-[11px] text-slate-400 truncate">{user.email}</p>
+              <p className="text-[11px] text-ink-400 truncate">{user.email}</p>
             </div>
           </div>
         </div>

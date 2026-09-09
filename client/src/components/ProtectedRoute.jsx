@@ -8,10 +8,10 @@ export default function ProtectedRoute({ allowedRoles = [], children }) {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className="min-h-screen flex items-center justify-center bg-ink-50">
         <div className="flex flex-col items-center gap-3">
           <div className="w-10 h-10 border-4 border-brand-500 border-t-transparent rounded-full animate-spin"></div>
-          <p className="text-sm font-medium text-slate-600">Verifying session...</p>
+          <p className="text-sm font-medium text-ink-600">Verifying session...</p>
         </div>
       </div>
     );

@@ -117,11 +117,13 @@ export default function DirectorVoucherList() {
   };
 
   return (
-    <div>
-      <div className="mb-6">
-        <h1 className="text-2xl font-black text-slate-800 tracking-tight">Organization Vouchers</h1>
-        <p className="text-sm text-slate-500 mt-0.5">
-          Comprehensive repository of all company expense vouchers with search and filter controls.
+    <div className="page-shell">
+      <div>
+        <h1 className="font-display text-2xl md:text-3xl font-semibold text-ink-900 tracking-tight">
+          Organization vouchers
+        </h1>
+        <p className="text-sm text-ink-500 mt-1">
+          All company expense vouchers with search and filter controls.
         </p>
       </div>
 
@@ -169,16 +171,16 @@ export default function DirectorVoucherList() {
       />
 
       {activeRejectVoucher && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border border-slate-200">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-rose-50/50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink-900/60 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border border-ink-200">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-ink-100 bg-rose-50/50">
               <div className="flex items-center gap-2 text-rose-700">
                 <XCircle className="w-5 h-5" />
-                <h3 className="font-bold text-slate-900">Reject Expense Voucher</h3>
+                <h3 className="font-bold text-ink-900">Reject Expense Voucher</h3>
               </div>
               <button
                 onClick={() => setActiveRejectVoucher(null)}
-                className="text-slate-400 hover:text-slate-600 p-1 rounded-lg"
+                className="text-ink-400 hover:text-ink-600 p-1 rounded-lg"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -186,9 +188,9 @@ export default function DirectorVoucherList() {
 
             <form onSubmit={handleConfirmReject} className="p-6 space-y-4">
               <div>
-                <p className="text-xs text-slate-500 mb-2">
+                <p className="text-xs text-ink-500 mb-2">
                   Enter rejection reason for voucher{' '}
-                  <strong className="text-slate-800">{activeRejectVoucher.voucherNumber}</strong>:
+                  <strong className="text-ink-800">{activeRejectVoucher.voucherNumber}</strong>:
                 </p>
                 <textarea
                   rows={4}
@@ -196,7 +198,7 @@ export default function DirectorVoucherList() {
                   value={rejectionReason}
                   onChange={(e) => setRejectionReason(e.target.value)}
                   placeholder="e.g. Policy cap exceeded, missing supporting receipt..."
-                  className="w-full px-3.5 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500"
+                  className="w-full px-3.5 py-2.5 text-sm bg-ink-50 border border-ink-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500"
                 />
               </div>
 
@@ -206,11 +208,11 @@ export default function DirectorVoucherList() {
                 </div>
               )}
 
-              <div className="flex justify-end gap-3 pt-3 border-t border-slate-100">
+              <div className="flex justify-end gap-3 pt-3 border-t border-ink-100">
                 <button
                   type="button"
                   onClick={() => setActiveRejectVoucher(null)}
-                  className="px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl"
+                  className="px-4 py-2 text-sm font-medium text-ink-600 hover:bg-ink-100 rounded-xl"
                 >
                   Cancel
                 </button>

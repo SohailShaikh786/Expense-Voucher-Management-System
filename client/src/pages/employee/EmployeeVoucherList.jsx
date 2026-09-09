@@ -117,19 +117,17 @@ export default function EmployeeVoucherList() {
   };
 
   return (
-    <div>
-      {/* Top Title & Action */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+    <div className="page-shell">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black text-slate-800 tracking-tight">My Expense Vouchers</h1>
-          <p className="text-sm text-slate-500 mt-0.5">
-            Manage your personal reimbursement claims, drafts, and submissions.
+          <h1 className="font-display text-2xl md:text-3xl font-semibold text-ink-900 tracking-tight">
+            My expense vouchers
+          </h1>
+          <p className="text-sm text-ink-500 mt-1">
+            Manage drafts, submissions, and reimbursement status.
           </p>
         </div>
-        <Link
-          to="/employee/vouchers/new"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-xl shadow-sm transition-colors"
-        >
+        <Link to="/employee/vouchers/new" className="btn-primary shrink-0">
           <PlusCircle className="w-4 h-4" />
           Create New Voucher
         </Link>
